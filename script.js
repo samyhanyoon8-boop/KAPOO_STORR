@@ -1,3 +1,6 @@
+const telegramUser = "@k_a_p_oo2";
+const whatsappNumber = "01281584651";
+
 const products = [
   {name: "أرقام تليجرام", price: 10},
   {name: "رقم واتساب", price: 8},
@@ -23,24 +26,41 @@ products.forEach((p, i) => {
   div.className = "item";
   div.innerHTML = `
     <h3>${p.name}</h3>
-    <p>السعر: ${p.price}ج</p>
+    <p>السعر: ${p.price} ج</p>
     <label>الكمية:</label>
-    <input type="number" id="qty${i}" min="1" value="1">
-    <br>
-    <button onclick="buy('${p.name}', ${p.price}, 'qty${i}')">شراء الآن</button>
+    <input type="number" id="qty${i}" min="1" value="1"><br>
+    <label>اكتب الإيدي:</label>
+    <input type="text" id="id${i}" placeholder="أدخل الإيدي هنا"><br>
+    <button onclick="buyWhatsApp('${p.name}', ${p.price}, 'qty${i}', 'id${i}')">شراء واتس</button>
+    <button class="telegram" onclick="buyTelegram('${p.name}', ${p.price}, 'qty${i}', 'id${i}')">شراء تليجرام</button>
   `;
   store.appendChild(div);
 });
 
-function buy(name, price, qtyId) {
+function buyWhatsApp(name, price, qtyId, idInput) {
   const qty = document.getElementById(qtyId).value;
+  const userId = document.getElementById(idInput).value || "لم يُدخل إيدي";
   const total = price * qty;
   const message = `طلب شراء جديد من متجر كابو ✅
 المنتج: ${name}
 الكمية: ${qty}
-الإجمالي: ${total}ج`;
+الإجمالي: ${total}ج
+الإيدي: ${userId}`;
+  
+  const url = `https://wa.me/2${whatsappNumber}?text=${encodeURIComponent(message)}`;
+  window.open(url, "_blank");
+}
 
-  const phone = "01281584651"; // رقمك
-  const url = `https://wa.me/2${phone}?text=${encodeURIComponent(message)}`;
+function buyTelegram(name, price, qtyId, idInput) {
+  const qty = document.getElementById(qtyId).value;
+  const userId = document.getElementById(idInput).value || "لم يُدخل إيدي";
+  const total = price * qty;
+  const message = `طلب شراء جديد من متجر كابو ✅
+المنتج: ${name}
+الكمية: ${qty}
+الإجمالي: ${total}ج
+الإيدي: ${userId}`;
+  
+  const url = `https://t.me/${telegramUser.replace("@", "")}?text=${encodeURIComponent(message)}`;
   window.open(url, "_blank");
 }
