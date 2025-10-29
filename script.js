@@ -29,8 +29,8 @@ products.forEach((p, i) => {
     <p>السعر: ${p.price} ج</p>
     <label>الكمية:</label>
     <input type="number" id="qty${i}" min="1" value="1"><br>
-    <label>اكتب الإيدي:</label>
-    <input type="text" id="id${i}" placeholder="أدخل الإيدي هنا"><br>
+    <label>الإيدي:</label>
+    <input type="text" id="id${i}" placeholder="اكتب الإيدي هنا"><br>
     <button onclick="buyWhatsApp('${p.name}', ${p.price}, 'qty${i}', 'id${i}')">شراء واتس</button>
     <button class="telegram" onclick="buyTelegram('${p.name}', ${p.price}, 'qty${i}', 'id${i}')">شراء تليجرام</button>
   `;
@@ -41,7 +41,7 @@ function buyWhatsApp(name, price, qtyId, idInput) {
   const qty = document.getElementById(qtyId).value;
   const userId = document.getElementById(idInput).value || "لم يُدخل إيدي";
   const total = price * qty;
-  const message = `طلب شراء جديد من متجر كابو ✅
+  const message = `طلب شراء من متجر كابو ✅
 المنتج: ${name}
 الكمية: ${qty}
 الإجمالي: ${total}ج
@@ -55,12 +55,12 @@ function buyTelegram(name, price, qtyId, idInput) {
   const qty = document.getElementById(qtyId).value;
   const userId = document.getElementById(idInput).value || "لم يُدخل إيدي";
   const total = price * qty;
-  const message = `طلب شراء جديد من متجر كابو ✅
+  const message = `طلب شراء من متجر كابو ✅
 المنتج: ${name}
 الكمية: ${qty}
 الإجمالي: ${total}ج
 الإيدي: ${userId}`;
   
-  const url = `https://t.me/${telegramUser.replace("@", "")}?text=${encodeURIComponent(message)}`;
-  window.open(url, "_blank");
+  const shareUrl = `https://t.me/share/url?url=${encodeURIComponent(message)}`;
+  window.open(shareUrl, "_blank");
 }
