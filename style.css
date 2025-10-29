@@ -1,50 +1,61 @@
 body {
   font-family: "Tahoma", sans-serif;
-  background: #111;
-  color: white;
+  background: #0d0d0d;
+  color: #fff;
   text-align: center;
   margin: 0;
   padding: 20px;
 }
 h1 {
   color: #00ff88;
+  margin-bottom: 20px;
 }
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 15px;
-  margin-top: 20px;
 }
 .item {
-  background: #1e1e1e;
-  padding: 15px;
+  background: #1a1a1a;
   border-radius: 15px;
-  box-shadow: 0 0 10px #00ff8855;
+  box-shadow: 0 0 10px #00ff8850;
+  padding: 15px;
 }
 .item h3 {
   color: #00ffcc;
+  margin-bottom: 5px;
+}
+input {
+  margin-top: 5px;
+  border-radius: 5px;
+  border: none;
+  padding: 6px;
+  text-align: center;
+  width: 80%;
 }
 button {
   background: #00ff88;
-  color: #000;
   border: none;
   padding: 10px;
-  margin-top: 10px;
   border-radius: 10px;
-  cursor: pointer;
   font-weight: bold;
+  cursor: pointer;
+  width: 48%;
+  margin: 5px 1%;
+  transition: 0.3s;
 }
 button:hover {
   background: #00ffaa;
 }
-input {
-  width: 60px;
-  text-align: center;
-  border-radius: 5px;
-  padding: 5px;
+.telegram {
+  background: #0088cc;
+  color: white;
+}
+.telegram:hover {
+  background: #33aaff;
 }
 .footer {
   margin-top: 30px;
-  font-size: 14px;
   color: #999;
+  font-size: 14px;
 }
