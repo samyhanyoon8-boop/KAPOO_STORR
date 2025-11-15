@@ -1,66 +1,71 @@
-const telegramUser = "@k_a_p_oo2";
-const whatsappNumber = "01281584651";
-
 const products = [
-  {name: "أرقام تليجرام", price: 10},
-  {name: "رقم واتساب", price: 8},
-  {name: "تعديل على نسخ واتس", price: 10},
-  {name: "بوت أرقام فيك", price: 15},
-  {name: "طريقة عمل موقع", price: 15},
-  {name: "كيب تحفيل + كيب مجال", price: 10},
-  {name: "توعية أمنية (فيروسات)", price: 10},
-  {name: "بوت اختراق (توعية أمنية)", price: 10},
-  {name: "ملفات داتا مصر", price: 20},
-  {name: "60 شدة ببجي", price: 50},
-  {name: "ازدهار أول", price: 50},
-  {name: "100 جوهرة فري فاير", price: 65},
-  {name: "عضوية أسبوعية فري فاير", price: 75},
-  {name: "برايم عادي ايدي", price: 50},
-  {name: "برايم بلس ايدي", price: 440}
+    {name: "60 شدة", price: 43, hasId: true},
+    {name: "325 شدة", price: 215, hasId: true},
+    {name: "شحنة سيزون كامل", price: 200, hasId: true},
+    {name: "كرستاله حمرا", price: 140, hasId: true},
+    {name: "برايم عادي", price: 45, hasId: true},
+    {name: "برايم بلص", price: 420, hasId: true},
+    {name: "كرت فكه 20ج", price: 20, hasId: true},
+    {name: "كرت فكه 28ج", price: 28, hasId: true},
+    {name: "كرت فكه 14ج", price: 14, hasId: true},
+    {name: "باقه فليكس 105ج", price: 105, hasId: true},
+    {name: "باقه فليكس 150ج", price: 150, hasId: true},
+    {name: "طريقه سح/ب صور", price: 50, hasId: false},
+    {name: "طريقه عمل موقع", price: 50, hasId: false},
+    {name: "طريقه حظ/ر ارقام", price: 50, hasId: false},
+    {name: "طريقه كراش", price: 50, hasId: false},
+    {name: "طريقه حر/ق جوجل", price: 40, hasId: false}
 ];
 
-const store = document.getElementById("store");
+const whatsappNumber = "201284070117";
+const telegramUsername = "K_A_P_OO7";
 
-products.forEach((p, i) => {
-  const div = document.createElement("div");
-  div.className = "item";
-  div.innerHTML = `
-    <h3>${p.name}</h3>
-    <p>السعر: ${p.price} ج</p>
-    <label>الكمية:</label>
-    <input type="number" id="qty${i}" min="1" value="1"><br>
-    <label>الإيدي:</label>
-    <input type="text" id="id${i}" placeholder="اكتب الإيدي هنا"><br>
-    <button onclick="buyWhatsApp('${p.name}', ${p.price}, 'qty${i}', 'id${i}')">شراء واتس</button>
-    <button class="telegram" onclick="buyTelegram('${p.name}', ${p.price}, 'qty${i}', 'id${i}')">شراء تليجرام</button>
-  `;
-  store.appendChild(div);
+const productsDiv = document.querySelector(".products");
+
+products.forEach((prod, index) => {
+    const div = document.createElement("div");
+    div.className = "product";
+    let html = `<h3>${prod.name}</h3><p>السعر: ${prod.price} ج</p>`;
+    if(prod.hasId){
+        html += `<input type="text" id="input${index}" placeholder="ادخل رقم/ID">`;
+    }
+    html += `
+        <button class="buy-btn" onclick="buyWhatsApp(${index})">شراء واتساب</button>
+        <button class="buy-btn" onclick="buyTelegram(${index})">شراء تليجرام</button>
+    `;
+    div.innerHTML = html;
+    productsDiv.appendChild(div);
 });
 
-function buyWhatsApp(name, price, qtyId, idInput) {
-  const qty = document.getElementById(qtyId).value;
-  const userId = document.getElementById(idInput).value || "لم يُدخل إيدي";
-  const total = price * qty;
-  const message = `طلب شراء من متجر كابو ✅
-المنتج: ${name}
-الكمية: ${qty}
-الإجمالي: ${total}ج
-الإيدي: ${userId}`;
-  
-  const url = `https://wa.me/2${whatsappNumber}?text=${encodeURIComponent(message)}`;
-  window.open(url, "_blank");
+// أزرار شراء
+function buyWhatsApp(index){
+    const prod = products[index];
+    let inputVal = "";
+    if(prod.hasId){
+        inputVal = document.getElementById("input"+index).value;
+        if(!inputVal){ alert("من فضلك ادخل الرقم/ID"); return; }
+    }
+    const message = `المنتج: ${prod.name} \nالسعر: ${prod.price} ج${inputVal ? "\nID: " + inputVal : ""}`;
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank");
 }
 
-function buyTelegram(name, price, qtyId, idInput) {
-  const qty = document.getElementById(qtyId).value;
-  const userId = document.getElementById(idInput).value || "لم يُدخل إيدي";
-  const total = price * qty;
-  const message = `طلب شراء من متجر كابو ✅
-المنتج: ${name}
-الكمية: ${qty}
-الإجمالي: ${total}ج
-الإيدي: ${userId}`;
-  
-  const shareUrl = `https://t.me/share/url?url=${encodeURIComponent(message)}`;
-  window.open(shareUrl, "_blank");
+function buyTelegram(index){
+    const prod = products[index];
+    let inputVal = "";
+    if(prod.hasId){
+        inputVal = document.getElementById("input"+index).value;
+        if(!inputVal){ alert("من فضلك ادخل الرقم/ID"); return; }
+    }
+    const message = `المنتج: ${prod.name} \nالسعر: ${prod.price} ج${inputVal ? "\nID: " + inputVal : ""}`;
+    window.open(`https://t.me/${telegramUsername}?text=${encodeURIComponent(message)}`, "_blank");
+}
+
+// قائمة الثلاث نقاط
+function toggleMenu() {
+    const dropdown = document.querySelector(".menu .dropdown");
+    if(dropdown.style.display === "flex") {
+        dropdown.style.display = "none";
+    } else {
+        dropdown.style.display = "flex";
+    }
 }
