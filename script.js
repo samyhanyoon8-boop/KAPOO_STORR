@@ -1,4 +1,6 @@
-window.onload = function() {
+// كل شيء بعد تحميل الصفحة
+document.addEventListener("DOMContentLoaded", function() {
+
     const products = [
         {name: "60 شدة", price: 43, hasId: true},
         {name: "325 شدة", price: 215, hasId: true},
@@ -20,7 +22,8 @@ window.onload = function() {
 
     const whatsappNumber = "201284070117";
     const telegramUsername = "K_A_P_OO7";
-    const productsDiv = document.querySelector(".products");
+
+    const productsDiv = document.getElementById("products");
 
     products.forEach((prod, index) => {
         const div = document.createElement("div");
@@ -37,36 +40,28 @@ window.onload = function() {
         productsDiv.appendChild(div);
     });
 
+    // أزرار الشراء
     window.buyWhatsApp = function(index){
         const prod = products[index];
-        let inputVal = "";
-        if(prod.hasId){
-            inputVal = document.getElementById("input"+index).value;
-            if(!inputVal){ alert("من فضلك ادخل الرقم/ID"); return; }
-        }
+        let inputVal = prod.hasId ? document.getElementById("input"+index).value : "";
+        if(prod.hasId && !inputVal){ alert("من فضلك ادخل الرقم/ID"); return; }
         const message = `المنتج: ${prod.name} \nالسعر: ${prod.price} ج${inputVal ? "\nID: " + inputVal : ""}`;
         window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank");
     }
 
     window.buyTelegram = function(index){
         const prod = products[index];
-        let inputVal = "";
-        if(prod.hasId){
-            inputVal = document.getElementById("input"+index).value;
-            if(!inputVal){ alert("من فضلك ادخل الرقم/ID"); return; }
-        }
+        let inputVal = prod.hasId ? document.getElementById("input"+index).value : "";
+        if(prod.hasId && !inputVal){ alert("من فضلك ادخل الرقم/ID"); return; }
         const message = `المنتج: ${prod.name} \nالسعر: ${prod.price} ج${inputVal ? "\nID: " + inputVal : ""}`;
         window.open(`https://t.me/${telegramUsername}?text=${encodeURIComponent(message)}`, "_blank");
     }
 
+    // قائمة الثلاث نقاط
     window.toggleMenu = function() {
         const dropdown = document.querySelector(".menu .dropdown");
-        if(dropdown.style.display === "flex") {
-            dropdown.style.display = "none";
-        } else {
-            dropdown.style.display = "flex";
-            dropdown.style.flexDirection = "column";
-        }
+        dropdown.style.display = dropdown.style.display === "flex" ? "none" : "flex";
+        dropdown.style.flexDirection = "column";
     }
 
     // إغلاق القائمة لو ضغطت براها
@@ -76,4 +71,5 @@ window.onload = function() {
             document.querySelector(".menu .dropdown").style.display = "none";
         }
     });
-}
+
+});
