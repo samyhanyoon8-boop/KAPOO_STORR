@@ -1,187 +1,131 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KAPOO STORE</title>
-<style>
-body {
-    font-family: Arial, sans-serif;
-    background: #000;
-    color: #0f0;
-    margin: 0;
-    padding: 0;
-}
-header {
-    background: #111;
-    color: #0f0;
-    padding: 15px;
-    text-align: center;
-}
-h1 { margin: 0; }
-
-.products {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 20px;
-    gap: 20px;
-}
-
-.product {
-    background: #111;
-    padding: 15px;
-    border-radius: 10px;
-    width: 240px;
-    text-align: center;
-    box-shadow: 0 0 10px #0f0;
-}
-.product h3 { margin-bottom: 5px; }
-.product input {
-    width: 80%;
-    padding: 5px;
-    margin: 5px 0;
-    border-radius: 5px;
-    border: 1px solid #0f0;
-    background: #000;
-    color: #0f0;
-}
-.buy-btn {
-    display: inline-block;
-    padding: 8px 12px;
-    margin: 5px;
-    background: #0f0;
-    color: #000;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-/* قائمة الثلاث نقاط */
-.menu {
-    position: fixed;
-    top: 15px;
-    left: 15px;
-    z-index: 9999;
-}
-.dots {
-    font-size: 28px;
-    cursor: pointer;
-    color: #0f0;
-    padding: 5px;
-}
-.dropdown {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 40px;
-    left: 0;
-    background: #111;
-    border: 1px solid #0f0;
-    border-radius: 5px;
-    min-width: 200px;
-}
-.dropdown a {
-    color: #0f0;
-    text-decoration: none;
-    padding: 10px 15px;
-    display: block;
-}
-.dropdown a:hover {
-    background: #0f0;
-    color: #000;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>متجر كابو</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- زر القائمة الثلاث نقاط -->
-<div class="menu">
-    <div class="dots" onclick="toggleMenu()">⋮</div>
-    <div class="dropdown">
-        <a href="https://wa.me/2010284070117" target="_blank">شاتي واتساب</a>
-        <a href="https://t.me/K_A_P_OO7" target="_blank">شاتي تليجرام</a>
-        <a href="https://whatsapp.com/channel/0029Vb78F2gCRs1gRj6i6W2O" target="_blank">قناة إثباتات الموقع</a>
+  <h1>متجر كابو الإلكتروني</h1>
+
+  <div class="container">
+
+    <!-- 60 UC -->
+    <div class="card">
+      <h3>60 شدة</h3>
+      <p>السعر: 43 جنيه</p>
+      <input id="id60" placeholder="اكتب ID">
+      <button onclick="buy('60 شدة','43 جنيه', document.getElementById('id60').value)">شراء</button>
     </div>
-</div>
 
-<header>
-    <h1>KAPOO STORE</h1>
-</header>
+    <!-- 325 UC -->
+    <div class="card">
+      <h3>325 شدة</h3>
+      <p>السعر: 215 جنيه</p>
+      <input id="id325" placeholder="اكتب ID">
+      <button onclick="buy('325 شدة','215 جنيه', document.getElementById('id325').value)">شراء</button>
+    </div>
 
-<div class="products" id="products"></div>
+    <!-- Season -->
+    <div class="card">
+      <h3>شحنة سيزون كامل</h3>
+      <p>السعر: 200 جنيه</p>
+      <input id="idseason" placeholder="اكتب ID">
+      <button onclick="buy('شحنة سيزون كامل','200 جنيه', document.getElementById('idseason').value)">شراء</button>
+    </div>
 
-<script>
-const products = [
-    {name: "60 شدة", price: 43, hasId: true},
-    {name: "325 شدة", price: 215, hasId: true},
-    {name: "شحنة سيزون كامل", price: 200, hasId: true},
-    {name: "كرستاله حمرا", price: 140, hasId: true},
-    {name: "برايم عادي", price: 45, hasId: true},
-    {name: "برايم بلص", price: 420, hasId: true},
-    {name: "كرت فكه 20ج", price: 20, hasId: true},
-    {name: "كرت فكه 28ج", price: 28, hasId: true},
-    {name: "كرت فكه 14ج", price: 14, hasId: true},
-    {name: "باقه فليكس 105ج", price: 105, hasId: true},
-    {name: "باقه فليكس 150ج", price: 150, hasId: true},
-    {name: "طريقه سح/ب صور", price: 50, hasId: false},
-    {name: "طريقه عمل موقع", price: 50, hasId: false},
-    {name: "طريقه حظ/ر ارقام", price: 50, hasId: false},
-    {name: "طريقه كراش", price: 50, hasId: false},
-    {name: "طريقه حر/ق جوجل", price: 40, hasId: false}
-];
+    <!-- Red Crystal -->
+    <div class="card">
+      <h3>كريستاله حمرا</h3>
+      <p>السعر: 140 جنيه</p>
+      <input id="idred" placeholder="اكتب ID">
+      <button onclick="buy('كريستاله حمرا','140 جنيه', document.getElementById('idred').value)">شراء</button>
+    </div>
 
-const whatsappNumber = "2010284070117";
-const telegramUsername = "K_A_P_OO7";
+    <!-- Prime -->
+    <div class="card">
+      <h3>برايم عادي</h3>
+      <p>السعر: 45 جنيه</p>
+      <input id="idprime" placeholder="اكتب ID">
+      <button onclick="buy('برايم عادي','45 جنيه', document.getElementById('idprime').value)">شراء</button>
+    </div>
 
-const productsDiv = document.getElementById("products");
+    <!-- Prime Plus -->
+    <div class="card">
+      <h3>برايم بلس</h3>
+      <p>السعر: 420 جنيه</p>
+      <input id="idprimeplus" placeholder="اكتب ID">
+      <button onclick="buy('برايم بلس','420 جنيه', document.getElementById('idprimeplus').value)">شراء</button>
+    </div>
 
-products.forEach((prod, index) => {
-    const div = document.createElement("div");
-    div.className = "product";
-    let html = `<h3>${prod.name}</h3><p>السعر: ${prod.price} ج</p>`;
-    if(prod.hasId){
-        html += `<input type="text" id="input${index}" placeholder="ادخل رقم/ID">`;
-    }
-    html += `
-        <button class="buy-btn" onclick="buyWhatsApp(${index})">شراء واتساب</button>
-        <button class="buy-btn" onclick="buyTelegram(${index})">شراء تليجرام</button>
-    `;
-    div.innerHTML = html;
-    productsDiv.appendChild(div);
-});
+    <!-- Cards (phone number) -->
+    <div class="card">
+      <h3>كارت فكة 20 جنيه</h3>
+      <input id="num20" placeholder="اكتب الرقم">
+      <button onclick="buy('كارت فكة 20','20 جنيه', document.getElementById('num20').value)">شراء</button>
+    </div>
 
-function buyWhatsApp(index){
-    const prod = products[index];
-    let inputVal = prod.hasId ? document.getElementById("input"+index).value : "";
-    if(prod.hasId && !inputVal){ alert("من فضلك ادخل الرقم/ID"); return; }
-    const message = `المنتج: ${prod.name} \nالسعر: ${prod.price} ج${inputVal ? "\nID: " + inputVal : ""}`;
-    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank");
-}
+    <div class="card">
+      <h3>كارت فكة 28 جنيه</h3>
+      <input id="num28" placeholder="اكتب الرقم">
+      <button onclick="buy('كارت فكة 28','28 جنيه', document.getElementById('num28').value)">شراء</button>
+    </div>
 
-function buyTelegram(index){
-    const prod = products[index];
-    let inputVal = prod.hasId ? document.getElementById("input"+index).value : "";
-    if(prod.hasId && !inputVal){ alert("من فضلك ادخل الرقم/ID"); return; }
-    const message = `المنتج: ${prod.name} \nالسعر: ${prod.price} ج${inputVal ? "\nID: " + inputVal : ""}`;
-    window.open(`https://t.me/${telegramUsername}?text=${encodeURIComponent(message)}`, "_blank");
-}
+    <div class="card">
+      <h3>كارت فكة 14 جنيه</h3>
+      <input id="num14" placeholder="اكتب الرقم">
+      <button onclick="buy('كارت فكة 14','14 جنيه', document.getElementById('num14').value)">شراء</button>
+    </div>
 
-// قائمة الثلاث نقاط
-function toggleMenu() {
-    const dropdown = document.querySelector(".menu .dropdown");
-    dropdown.style.display = dropdown.style.display === "flex" ? "none" : "flex";
-    dropdown.style.flexDirection = "column";
-}
+    <!-- Flex -->
+    <div class="card">
+      <h3>باقه فليكس 105</h3>
+      <input id="flex105" placeholder="اكتب الرقم">
+      <button onclick="buy('باقه فليكس 105','105 جنيه', document.getElementById('flex105').value)">شراء</button>
+    </div>
 
-// إغلاق القائمة لو ضغطت براها
-document.addEventListener("click", function(event){
-    const menu = document.querySelector(".menu");
-    if(!menu.contains(event.target)) {
-        document.querySelector(".menu .dropdown").style.display = "none";
-    }
-});
-</script>
+    <div class="card">
+      <h3>باقه فليكس 150</h3>
+      <input id="flex150" placeholder="اكتب الرقم">
+      <button onclick="buy('باقه فليكس 150','150 جنيه', document.getElementById('flex150').value)">شراء</button>
+    </div>
+
+    <!-- Methods -->
+    <div class="card">
+      <h3>طريقة سحب صور</h3>
+      <p>السعر: 50 جنيه</p>
+      <button onclick=\"buy('طريقة سحب صور','50 جنيه','')\">شراء</button>
+    </div>
+
+    <div class="card">
+      <h3>طريقة عمل موقع</h3>
+      <p>السعر: 50 جنيه</p>
+      <button onclick=\"buy('طريقة عمل موقع','50 جنيه','')\">شراء</button>
+    </div>
+
+    <div class="card">
+      <h3>طريقة حظر أرقام</h3>
+      <p>السعر: 50 جنيه</p>
+      <button onclick=\"buy('طريقة حظر أرقام','50 جنيه','')\">شراء</button>
+    </div>
+
+    <div class="card">
+      <h3>طريقة كراش</h3>
+      <p>السعر: 50 جنيه</p>
+      <button onclick=\"buy('طريقة كراش','50 جنيه','')\">شراء</button>
+    </div>
+
+    <div class="card">
+      <h3>طريقة حرق جوجل</h3>
+      <p>السعر: 40 جنيه</p>
+      <button onclick=\"buy('طريقة حرق جوجل','40 جنيه','')\">شراء</button>
+    </div>
+
+  </div>
+
+  <script src=\"script.js\"></script>
 
 </body>
 </html>
