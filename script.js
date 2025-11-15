@@ -1,6 +1,5 @@
 function buy(product, price, data) {
 
-    // نص الرسالة
     let message = `🔵 طلب شراء\n------------------\nالمنتج: ${product}\nالسعر: ${price}`;
 
     if (data && data.trim() !== "") {
@@ -9,20 +8,17 @@ function buy(product, price, data) {
 
     let encoded = encodeURIComponent(message);
 
-    // رقم الواتساب
     let phone = "201284070117";
-
-    // يوزر التليجرام
     let telegramUser = "K_A_P_OO7";
 
-    // إنشاء نافذة اختيار
+    // نافذة اختيار
     let box = document.createElement("div");
     box.style.position = "fixed";
     box.style.top = "0";
     box.style.left = "0";
     box.style.width = "100%";
     box.style.height = "100%";
-    box.style.background = "rgba(0,0,0,0.6)";
+    box.style.background = "rgba(0,0,0,0.4)";
     box.style.display = "flex";
     box.style.justifyContent = "center";
     box.style.alignItems = "center";
@@ -32,56 +28,56 @@ function buy(product, price, data) {
         <div style="
             background:white;
             padding:20px;
-            border-radius:12px;
             width:320px;
+            border-radius:12px;
             text-align:center;
-            box-shadow:0 4px 20px rgba(0,0,0,0.2);
+            font-size:18px;
         ">
-            <h3 style="margin-bottom:15px;">اختر وسيلة الشراء</h3>
+            <p style="margin-bottom:18px; font-size:17px;">اختار طريقة الشراء:</p>
 
-            <button id="wBtn" style="
-                width:100%;
-                padding:12px;
-                margin-bottom:10px;
-                background:#25D366;
-                color:white;
-                border:none;
-                border-radius:8px;
-                font-size:17px;
-                cursor:pointer;
-            ">شراء عبر واتساب</button>
+            <div style="display:flex; gap:10px;">
 
-            <button id="tBtn" style="
-                width:100%;
-                padding:12px;
-                background:#0088cc;
-                color:white;
-                border:none;
-                border-radius:8px;
-                font-size:17px;
-                cursor:pointer;
-            ">شراء عبر تليجرام</button>
+                <button id="wBtn" style="
+                    flex:1;
+                    padding:12px;
+                    border:none;
+                    border-radius:8px;
+                    background:#25D366;
+                    color:white;
+                    font-size:16px;
+                    cursor:pointer;
+                ">واتساب</button>
 
-            <p style="margin-top:10px; cursor:pointer; color:#444;" id="closeBox">إلغاء</p>
+                <button id="tBtn" style="
+                    flex:1;
+                    padding:12px;
+                    border:none;
+                    border-radius:8px;
+                    background:#0088cc;
+                    color:white;
+                    font-size:16px;
+                    cursor:pointer;
+                ">تيلجرام</button>
+
+            </div>
+
+            <p id="closeBox" style="margin-top:15px; cursor:pointer; font-size:14px; color:#444;">
+                إلغاء
+            </p>
         </div>
     `;
 
     document.body.appendChild(box);
 
-    // واتساب
     document.getElementById("wBtn").onclick = () => {
         window.open(`https://wa.me/${phone}?text=${encoded}`);
         box.remove();
     };
 
-    // تليجرام
     document.getElementById("tBtn").onclick = () => {
         window.open(`https://t.me/${telegramUser}?text=${encoded}`);
         box.remove();
     };
 
-    // إلغاء
-    document.getElementById("closeBox").onclick = () => {
-        box.remove();
-    };
+    document.getElementById("closeBox").onclick = () => box.remove();
 }
