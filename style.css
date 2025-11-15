@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
-    background: #000; /* خلفية سودا */
-    color: #0f0; /* كتابة خضرا */
+    background: #000;
+    color: #0f0;
     margin: 0;
     padding: 0;
 }
@@ -11,9 +11,8 @@ header {
     padding: 15px;
     text-align: center;
 }
-h1 {
-    margin: 0;
-}
+h1 { margin: 0; }
+
 .products {
     display: flex;
     flex-wrap: wrap;
@@ -21,6 +20,7 @@ h1 {
     padding: 20px;
     gap: 20px;
 }
+
 .product {
     background: #111;
     padding: 15px;
@@ -29,9 +29,7 @@ h1 {
     text-align: center;
     box-shadow: 0 0 10px #0f0;
 }
-.product h3 {
-    margin-bottom: 5px;
-}
+.product h3 { margin-bottom: 5px; }
 .product input {
     width: 80%;
     padding: 5px;
@@ -50,7 +48,6 @@ h1 {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    text-decoration: none;
 }
 
 /* قائمة الثلاث نقاط */
@@ -58,25 +55,29 @@ h1 {
     position: fixed;
     top: 15px;
     left: 15px;
-    z-index: 1000;
+    z-index: 9999;
 }
 .dots {
-    font-size: 24px;
+    font-size: 28px;
     cursor: pointer;
     color: #0f0;
+    padding: 5px;
 }
 .dropdown {
     display: none;
     flex-direction: column;
+    position: absolute;
+    top: 40px;
+    left: 0;
     background: #111;
     border: 1px solid #0f0;
     border-radius: 5px;
-    margin-top: 5px;
+    min-width: 200px;
 }
 .dropdown a {
     color: #0f0;
     text-decoration: none;
-    padding: 8px 12px;
+    padding: 10px 15px;
     display: block;
 }
 .dropdown a:hover {
