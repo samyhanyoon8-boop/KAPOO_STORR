@@ -2,139 +2,25 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>متجر كابو  </title>
+    <title>متجر كابو الالكتروني</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <header class="topbar">
-        <h1>متجر كابو 
-            </h1>
-    </header>
+<!-- نافذة الترحيب -->
+<div id="welcomeDialog" class="dialog">
+    <div class="dialog-content">
+        <h3>أهلاً بيك في متجر كابو الإلكتروني</h3>
+        <p>هتلاقي هنا أسعار رخيصة – سريع – مضمون 100%</p>
+        <button onclick="closeDialog()">تمام</button>
+    </div>
+</div>
 
-    <section class="products">
+<h1 class="title">متجر كابو الإلكتروني</h1>
 
-        <!-- 60 UC -->
-        <div class="card">
-            <h2>60 شدة</h2>
-            <p class="price">43 جنيه</p>
-            <input type="text" class="input" placeholder="اكتب ID">
-            <button onclick="buy('60 شدة', '43 جنيه', this.previousElementSibling.value)">شراء</button>
-        </div>
+<div class="products"></div>
 
-        <!-- 325 UC -->
-        <div class="card">
-            <h2>325 شدة</h2>
-            <p class="price">215 جنيه</p>
-            <input type="text" class="input" placeholder="اكتب ID">
-            <button onclick="buy('325 شدة', '215 جنيه', this.previousElementSibling.value)">شراء</button>
-        </div>
-
-        <!-- سيزون كامل -->
-        <div class="card">
-            <h2>شحنة سيزون كامل</h2>
-            <p class="price">200 جنيه</p>
-            <input type="text" class="input" placeholder="اكتب ID">
-            <button onclick="buy('شحنة سيزون كامل', '200 جنيه', this.previousElementSibling.value)">شراء</button>
-        </div>
-
-        <!-- كريستالة حمراء -->
-        <div class="card">
-            <h2>كريستالة حمرا</h2>
-            <p class="price">140 جنيه</p>
-            <input type="text" class="input" placeholder="اكتب ID">
-            <button onclick="buy('كريستالة حمرا', '140 جنيه', this.previousElementSibling.value)">شراء</button>
-        </div>
-
-        <!-- برايم -->
-        <div class="card">
-            <h2>برايم</h2>
-            <p class="price">45 جنيه</p>
-            <input type="text" class="input" placeholder="اكتب ID">
-            <button onclick="buy('برايم', '45 جنيه', this.previousElementSibling.value)">شراء</button>
-        </div>
-
-        <!-- برايم بلس -->
-        <div class="card">
-            <h2>برايم بلس</h2>
-            <p class="price">420 جنيه</p>
-            <input type="text" class="input" placeholder="اكتب ID">
-            <button onclick="buy('برايم بلس', '420 جنيه', this.previousElementSibling.value)">شراء</button>
-        </div>
-
-        <!-- كروت فكة -->
-        <div class="card">
-            <h2>كارت فكة 20</h2>
-            <p class="price">20 جنيه</p>
-            <input type="text" class="input" placeholder="رقم الشحن">
-            <button onclick="buy('كارت فكة 20', '20 جنيه', this.previousElementSibling.value)">شراء</button>
-        </div>
-
-        <div class="card">
-            <h2>كارت فكة 28</h2>
-            <p class="price">28 جنيه</p>
-            <input type="text" class="input" placeholder="رقم الشحن">
-            <button onclick="buy('كارت فكة 28', '28 جنيه', this.previousElementSibling.value)">شراء</button>
-        </div>
-
-        <div class="card">
-            <h2>كارت فكة 14</h2>
-            <p class="price">14 جنيه</p>
-            <input type="text" class="input" placeholder="رقم الشحن">
-            <button onclick="buy('كارت فكة 14', '14 جنيه', this.previousElementSibling.value)">شراء</button>
-        </div>
-
-        <!-- باقات فليكس -->
-        <div class="card">
-            <h2>باقه فليكس 105</h2>
-            <p class="price">105 جنيه</p>
-            <input type="text" class="input" placeholder="رقم الشحن">
-            <button onclick="buy('باقه فليكس 105', '105 جنيه', this.previousElementSibling.value)">شراء</button>
-        </div>
-
-        <div class="card">
-            <h2>باقه فليكس 150</h2>
-            <p class="price">150 جنيه</p>
-            <input type="text" class="input" placeholder="رقم الشحن">
-            <button onclick="buy('باقه فليكس 150', '150 جنيه', this.previousElementSibling.value)">شراء</button>
-        </div>
-
-        <!-- طرق -->
-        <div class="card">
-            <h2>طريقة سحب صور</h2>
-            <p class="price">50 جنيه</p>
-            <button onclick="buy('طريقة سحب صور', '50 جنيه')">شراء</button>
-        </div>
-
-        <div class="card">
-            <h2>طريقة عمل موقع</h2>
-            <p class="price">50 جنيه</p>
-            <button onclick="buy('طريقة عمل موقع', '50 جنيه')">شراء</button>
-        </div>
-
-        <div class="card">
-            <h2>طريقة حظر أرقام</h2>
-            <p class="price">50 جنيه</p>
-            <button onclick="buy('طريقة حظر أرقام', '50 جنيه')">شراء</button>
-        </div>
-
-        <div class="card">
-            <h2>طريقة كراش</h2>
-            <p class="price">50 جنيه</p>
-            <button onclick="buy('طريقة كراش', '50 جنيه')">شراء</button>
-        </div>
-
-        <div class="card">
-            <h2>طريقة حرق جوجل</h2>
-            <p class="price">40 جنيه</p>
-            <button onclick="buy('طريقة حرق جوجل', '40 جنيه')">شراء</button>
-        </div>
-
-    </section>
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
