@@ -1,83 +1,89 @@
-function buy(product, price, data) {
+// =====================
+// رسالة الترحيب
+// =====================
+function closeDialog() {
+    document.getElementById("welcomeDialog").style.display = "none";
+}
 
-    let message = `🔵 طلب شراء\n------------------\nالمنتج: ${product}\nالسعر: ${price}`;
+// =====================
+// بيانات التواصل
+// =====================
+const whatsappGeneral = "201284070117"; // العادي
+const telegramUser = "K_A_P_OO7";
+const whatsappOnly = "201204390990"; // منتجات واتساب فقط
 
-    if (data && data.trim() !== "") {
-        message += `\nالبيانات: ${data}`;
-    }
+// =====================
+// قاعدة البيانات
+// =====================
+const products = [
+    {name:"60 شده", price:"43ج", waOnly:false},
+    {name:"325 شده", price:"215ج", waOnly:false},
+    {name:"170 شده", price:"55ج", waOnly:false},
+    {name:"كريستاله حمرا", price:"140ج", waOnly:false},
+    {name:"سيزون", price:"200ج", waOnly:false},
+    {name:"برايم عادي", price:"48ج", waOnly:false},
+    {name:"برايم بلص", price:"420ج", waOnly:false},
 
-    let encoded = encodeURIComponent(message);
+    {name:"طريقة أرقام فيك", price:"20ج", waOnly:false},
+    {name:"طريقة عمل موقع", price:"30ج", waOnly:false},
+    {name:"طريقة سحب صور", price:"30ج", waOnly:false},
+    {name:"ملف سحب بيانات", price:"20ج", waOnly:false},
+    {name:"بوت سحب رقم من اليوزر", price:"20ج", waOnly:false},
+    {name:"بوت سحب محادثات الشخص", price:"20ج", waOnly:false},
+    {name:"عضوية أسبوعية", price:"70ج", waOnly:false},
+    {name:"عضوية شهرية", price:"350ج", waOnly:false},
+    {name:"بويا باس", price:"60ج", waOnly:false},
 
-    let phone = "201284070117";
-    let telegramUser = "K_A_P_OO7";
+    {name:"كرت فكه 17ج", price:"17ج", waOnly:false},
+    {name:"كرت فكه 20ج", price:"20ج", waOnly:false},
+    {name:"كرت فكه 28ج", price:"28ج", waOnly:false},
+    {name:"كرت فكه 36ج", price:"36ج", waOnly:false},
 
-    // نافذة اختيار
-    let box = document.createElement("div");
-    box.style.position = "fixed";
-    box.style.top = "0";
-    box.style.left = "0";
-    box.style.width = "100%";
-    box.style.height = "100%";
-    box.style.background = "rgba(0,0,0,0.4)";
-    box.style.display = "flex";
-    box.style.justifyContent = "center";
-    box.style.alignItems = "center";
-    box.style.zIndex = "9999";
+    {name:"100 نجمة تليجرام", price:"70ج", waOnly:false},
+    {name:"اشتراك مميز شهر", price:"200ج", waOnly:false},
+    {name:"موظف سحب داتا", price:"10ج", waOnly:false},
 
-    box.innerHTML = `
-        <div style="
-            background:white;
-            padding:20px;
-            width:320px;
-            border-radius:12px;
-            text-align:center;
-            font-size:18px;
-        ">
-            <p style="margin-bottom:18px; font-size:17px;">اختار طريقة الشراء:</p>
+    // واتساب فقط
+    {name:"لوجو", price:"25ج", waOnly:true},
+    {name:"حزمة 3 لوجهات", price:"65ج", waOnly:true},
+    {name:"استيكر", price:"10ج", waOnly:true},
+    {name:"حزمة 3 استيكرات", price:"25ج", waOnly:true},
+    {name:"بانر واتساب أعمال", price:"15ج", waOnly:true},
+];
 
-            <div style="display:flex; gap:10px;">
+// =====================
+// توليد المنتجات
+// =====================
+const container = document.querySelector(".products");
 
-                <button id="wBtn" style="
-                    flex:1;
-                    padding:12px;
-                    border:none;
-                    border-radius:8px;
-                    background:#25D366;
-                    color:white;
-                    font-size:16px;
-                    cursor:pointer;
-                ">واتساب</button>
+products.forEach(p => {
+    const card = document.createElement("div");
+    card.className = "product";
 
-                <button id="tBtn" style="
-                    flex:1;
-                    padding:12px;
-                    border:none;
-                    border-radius:8px;
-                    background:#0088cc;
-                    color:white;
-                    font-size:16px;
-                    cursor:pointer;
-                ">تيلجرام</button>
-
-            </div>
-
-            <p id="closeBox" style="margin-top:15px; cursor:pointer; font-size:14px; color:#444;">
-                إلغاء
-            </p>
+    card.innerHTML = `
+        <h3>${p.name}</h3>
+        <p>السعر: ${p.price}</p>
+        <div class="btns">
+            <button class="whatsapp" onclick="buyWhatsapp('${p.name}','${p.price}',${p.waOnly})">واتساب</button>
+            ${p.waOnly ? "" : `<button class="telegram" onclick="buyTelegram('${p.name}','${p.price}')">تيلجرام</button>`}
         </div>
     `;
+    container.appendChild(card);
+});
 
-    document.body.appendChild(box);
+// =====================
+// فتح واتساب
+// =====================
+function buyWhatsapp(name, price, waOnly) {
+    const num = waOnly ? whatsappOnly : whatsappGeneral;
+    const msg = encodeURIComponent(`عايز اشتري: ${name}\nالسعر: ${price}`);
+    window.open(`https://wa.me/${num}?text=${msg}`);
+}
 
-    document.getElementById("wBtn").onclick = () => {
-        window.open(`https://wa.me/${phone}?text=${encoded}`);
-        box.remove();
-    };
-
-    document.getElementById("tBtn").onclick = () => {
-        window.open(`https://t.me/${telegramUser}?text=${encoded}`);
-        box.remove();
-    };
-
-    document.getElementById("closeBox").onclick = () => box.remove();
+// =====================
+// فتح تيلجرام
+// =====================
+function buyTelegram(name, price) {
+    const msg = encodeURIComponent(`عايز اشتري: ${name} - السعر: ${price}`);
+    window.open(`https://t.me/${telegramUser}?text=${msg}`);
 }
