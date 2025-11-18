@@ -1,85 +1,110 @@
-/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Arial", sans-serif;
-}
-
 body {
-    background: #f5f7fa;
+    font-family: Arial;
+    background: #f2f2f2;
+    margin: 0;
     padding: 20px;
 }
 
-/* ====== HEADER ====== */
-.topbar {
-    background: #ffffff;
-    padding: 15px;
+.title {
     text-align: center;
-    font-size: 22px;
-    color: #333;
-    border-radius: 10px;
     margin-bottom: 25px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
 }
 
-/* ====== PRODUCTS GRID ====== */
 .products {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
 }
 
-/* ====== PRODUCT CARD ====== */
-.card {
-    background: #ffffff;
+.product {
+    background: white;
     padding: 15px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    transition: 0.2s;
+    border-radius: 10px;
+    box-shadow: 0 0 5px #ccc;
 }
 
-.card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 22px rgba(0,0,0,0.12);
+.product h3 {
+    margin: 0 0 10px;
 }
 
-.card h2 {
-    font-size: 20px;
-    margin-bottom: 8px;
-    color: #333;
+.btns {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
 }
 
-.card .price {
-    font-size: 18px;
-    margin-bottom: 12px;
-    color: #0077ff;
-    font-weight: bold;
-}
-
-/* Input */
-.input {
-    width: 100%;
+button {
+    flex: 1;
     padding: 10px;
-    border: 1px solid #ddd;
     border-radius: 8px;
-    margin-bottom: 12px;
+    border: none;
+    cursor: pointer;
     font-size: 15px;
 }
 
-/* Button */
-button {
-    width: 100%;
-    padding: 10px;
-    background: #0077ff;
-    color: #fff;
+.whatsapp { background: #25D366; color: white; }
+.telegram { background: #0088cc; color: white; }
+
+/* ====== شكل الديلوج الجديد ====== */
+.dialog {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.4s ease;
+}
+
+.dialog-content {
+    background: #ffffff;
+    padding: 25px 20px;
+    border-radius: 18px;
+    width: 85%;
+    max-width: 380px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    animation: popIn 0.35s ease;
+    border: 2px solid #0d6efd;
+}
+
+.dialog-content h3 {
+    margin: 0 0 10px;
+    font-size: 22px;
+    color: #0d6efd;
+    font-weight: bold;
+}
+
+.dialog-content p {
+    font-size: 16px;
+    margin: 8px 0 15px;
+    color: #444;
+}
+
+.dialog-content button {
+    background: #0d6efd;
+    color: white;
     border: none;
-    border-radius: 8px;
+    padding: 12px 20px;
+    border-radius: 10px;
     font-size: 16px;
     cursor: pointer;
+    width: 100%;
+    font-weight: bold;
     transition: 0.2s;
 }
 
-button:hover {
-    background: #005dd1;
+.dialog-content button:hover {
+    background: #0b5ed7;
+}
+
+/* أنيميشن */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
 }
