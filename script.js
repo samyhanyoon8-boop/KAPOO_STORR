@@ -65,6 +65,7 @@ const products = [
     {name:"بوتات اختراق", price:"10ج", waOnly:false},
     {name:"ماكينة حلاقة VGR", price:"600ج", waOnly:false},
     {name:"كتاب أرض زيكولا", price:"120ج", waOnly:false},
+    { name:"100 بوت مجال", price:"10ج", waOnly:false },
 ];
 
 // =====================
