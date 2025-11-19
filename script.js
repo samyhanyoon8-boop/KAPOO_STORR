@@ -52,6 +52,7 @@ const products = [
 
     // إضافات حديثة
     {name:"طريقة حرق جوجل", price:"20ج", waOnly:false},
+    { name:"100 بوت مجال", price:"10ج", waOnly:false },
     {name:"مواقع دارك ويب", price:"15ج", waOnly:false},
     {name:"سدادات أنف للسباحة", price:"20ج", waOnly:false},
     {name:"توثيق منصة بايبت", price:"100ج", waOnly:false},
@@ -65,7 +66,6 @@ const products = [
     {name:"بوتات اختراق", price:"10ج", waOnly:false},
     {name:"ماكينة حلاقة VGR", price:"600ج", waOnly:false},
     {name:"كتاب أرض زيكولا", price:"120ج", waOnly:false},
-    { name:"100 بوت مجال", price:"10ج", waOnly:false },
 ];
 
 // =====================
