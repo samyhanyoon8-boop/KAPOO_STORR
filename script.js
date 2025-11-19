@@ -42,6 +42,30 @@ const products = [
     {name:"100 نجمة تليجرام", price:"70ج", waOnly:false},
     {name:"اشتراك مميز شهر", price:"200ج", waOnly:false},
     {name:"موظف سحب داتا", price:"10ج", waOnly:false},
+    {name:"طريقة حرق جوجل", price:"20ج", waOnly:false},
+    {name:"مواقع دارك ويب", price:"15ج", waOnly:false},
+    {name:"سدادات أنف للسباحة", price:"100ج", waOnly:false},
+    {name:"توثيق منصة بايبت", price:"100ج", waOnly:false},
+    {name:"طريقة تثبيت أي حاجة على أندرويد 15", price:"10ج", waOnly:false},
+    {name:"اشتراك كانفا شهر", price:"40ج", waOnly:false},
+    {name:"سحب بطايق", price:"100ج", waOnly:false},
+    {name:"6 نسخ عكس", price:"15ج", waOnly:false},
+    {name:"بوت كراش", price:"10ج", waOnly:false},
+    {name:"بوتات اختراق", price:"10ج", waOnly:false},
+    {name:"كتاب أرض زيكولا", price:"120ج", waOnly:false},
+    { name:"ماكينة حلاقة VGR", price:"600ج", waOnly:false },
+    {name:"طريقه تعزيزات حسبات", price:"100ج", waOnly:false}
+    {name:"طريقة رشق متابعين", price:"20ج", waOnly:false},
+
+
+
+    
+    
+    
+    
+    
+    
+    
 
     // واتساب فقط
     {name:"لوجو", price:"25ج", waOnly:true},
