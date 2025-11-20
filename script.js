@@ -23,6 +23,7 @@ const products = [
     {name:"سيزون", price:"200ج", waOnly:false},
     {name:"برايم عادي", price:"48ج", waOnly:false},
     {name:"برايم بلص", price:"420ج", waOnly:false},
+    { name: "طريقة عمل أكتر من جميل", price: "10ج", waOnly:false },
 
     {name:"طريقة أرقام فيك", price:"20ج", waOnly:false},
     {name:"طريقة عمل موقع", price:"30ج", waOnly:false},
