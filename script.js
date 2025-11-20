@@ -16,6 +16,7 @@ const whatsappOnly = "201204390990"; // منتجات واتساب فقط
 // قائمة كل المنتجات
 // =====================
 const products = [
+    { name: "طريقة عمل أكتر من جميل", price: "10ج", waOnly:false },
     {name:"60 شده", price:"43ج", waOnly:false},
     {name:"325 شده", price:"215ج", waOnly:false},
     {name:"170 شده", price:"55ج", waOnly:false},
