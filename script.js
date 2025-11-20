@@ -23,7 +23,7 @@ const products = [
     {name:"سيزون", price:"200ج", waOnly:false},
     {name:"برايم عادي", price:"48ج", waOnly:false},
     {name:"برايم بلص", price:"420ج", waOnly:false},
-    { name: "طريقة عمل أكتر من جميل", price: "10ج", waOnly:false },
+    
 
     {name:"طريقة أرقام فيك", price:"20ج", waOnly:false},
     {name:"طريقة عمل موقع", price:"30ج", waOnly:false},
@@ -37,9 +37,9 @@ const products = [
 
     {name:"كرت فكه 17ج", price:"17ج", waOnly:false},
     {name:"كرت فكه 20ج", price:"20ج", waOnly:false},
-    {name:"كرت فكه 28ج", price:"28ج", waOnly:false},
-    {name:"كرت فكه 36ج", price:"36ج", waOnly:false},
-
+    {name:"كرت فكه 28ج", price:"28ج", waOnly:false}‚
+    {name:"كرت فكه 36ج", price:"36ج", waOnly:false}‚
+    { name: "طريقة عمل أكتر من جميل", price: "10ج", waOnly:false },
     {name:"100 نجمة تليجرام", price:"70ج", waOnly:false},
     {name:"اشتراك مميز شهر", price:"200ج", waOnly:false},
     {name:"موظف سحب داتا", price:"10ج", waOnly:false},
