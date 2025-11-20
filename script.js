@@ -68,7 +68,7 @@ products.forEach(product => {
   productsContainer.appendChild(div);
 });
 
-// التحكم في نافذة الترحيب
+// نافذة الترحيب
 const modal = document.getElementById("welcomeModal");
 const closeBtn = document.getElementById("closeModal");
 closeBtn.addEventListener("click", () => {
