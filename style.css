@@ -1,21 +1,29 @@
-/* عام */
+/* خلفية الموقع متدرجة متحركة */
 body {
-  background-color: #0a0a0a;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #fff;
   margin: 0;
-  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(-45deg, #0ff, #f0f, #0f0, #ff0);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  color: #fff;
 }
 
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* هيدر */
 header {
   text-align: center;
   padding: 30px 0 10px 0;
 }
 
 h1 {
-  font-size: 2.5em;
+  font-size: 2.8em;
   color: #0ff;
-  text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+  text-shadow: 0 0 10px #0ff, 0 0 25px #0ff;
   margin-bottom: 10px;
 }
 
@@ -35,47 +43,78 @@ h1 {
 
 /* تصميم الكروت */
 .product {
-  background: linear-gradient(135deg, #111 0%, #222 100%);
-  border-radius: 15px;
+  border-radius: 20px;
   padding: 20px;
-  box-shadow: 0 0 15px #0ff, 0 0 40px #0ff inset;
-  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
   border: 2px solid #0ff;
-}
-.product:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 0 25px #0ff, 0 0 50px #0ff inset;
+  box-shadow: 0 0 20px #0ff, 0 0 50px #0ff inset;
+  transition: transform 0.3s, box-shadow 0.3s;
+  background: rgba(0,0,0,0.4);
 }
 
+.product:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 40px #0ff, 0 0 80px #0ff inset;
+}
+
+/* كرت متدرج متحرك */
+.product::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: linear-gradient(45deg, #0ff, #0f0, #f0f, #ff0);
+  animation: animateGradient 6s linear infinite;
+  z-index: 0;
+  filter: blur(60px);
+}
+@keyframes animateGradient {
+  0% { transform: rotate(0deg) translate(0,0); }
+  50% { transform: rotate(180deg) translate(50px,50px); }
+  100% { transform: rotate(360deg) translate(0,0); }
+}
+
+.product > div {
+  position: relative;
+  z-index: 1;
+}
+
+/* نصوص */
 .product-name {
   font-size: 20px;
   font-weight: bold;
-  color: #0ff;
-  text-shadow: 0 0 8px #0ff;
+  text-shadow: 0 0 10px #0ff, 0 0 25px #0ff;
+  display: block;
+  margin-bottom: 10px;
 }
 
 .price {
-  font-size: 17px;
-  color: #0f0;
+  font-size: 18px;
   font-weight: bold;
-  margin: 5px 0 15px 0;
-  display: block;
+  color: #0f0;
+  text-shadow: 0 0 8px #0f0, 0 0 20px #0f0;
+  margin-bottom: 15px;
 }
 
 /* أزرار */
 .buttons {
   display: flex;
-  justify-content: space-between;
-  gap: 10px;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
 }
+
 .btn {
   flex: 1;
-  padding: 10px 0;
-  border-radius: 12px;
+  padding: 12px 15px;
+  border-radius: 15px;
   font-weight: bold;
   text-align: center;
-  color: #111;
   text-decoration: none;
+  color: #111;
+  box-shadow: 0 0 10px #0ff;
   transition: 0.3s;
 }
 
@@ -84,12 +123,15 @@ h1 {
 }
 .whatsapp:hover {
   background: linear-gradient(45deg, #0c0, #0f0);
+  box-shadow: 0 0 20px #0f0, 0 0 40px #0f0 inset;
 }
+
 .telegram {
   background: linear-gradient(45deg, #0ff, #0cc);
 }
 .telegram:hover {
   background: linear-gradient(45deg, #0cc, #0ff);
+  box-shadow: 0 0 20px #0ff, 0 0 40px #0ff inset;
 }
 
 /* نافذة الترحيب */
@@ -107,10 +149,10 @@ h1 {
 .modal-content {
   background: #111;
   border: 2px solid #0ff;
-  border-radius: 20px;
+  border-radius: 25px;
   padding: 40px 30px;
   text-align: center;
-  box-shadow: 0 0 25px #0ff, 0 0 50px #0ff inset;
+  box-shadow: 0 0 30px #0ff, 0 0 60px #0ff inset;
 }
 
 .modal-content p {
@@ -127,8 +169,13 @@ h1 {
   border: none;
   border-radius: 15px;
   cursor: pointer;
-  transition: 0.3s;
 }
 .modal-content button:hover {
   background: #0c0;
+}
+
+/* تمييز المنتجات واتساب فقط */
+.product.wa-only {
+  border-color: #f0f;
+  box-shadow: 0 0 20px #f0f, 0 0 50px #f0f inset;
 }
