@@ -1,20 +1,12 @@
-/* خلفية الموقع متدرجة متحركة */
+/* خلفية سودا صافية */
 body {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(-45deg, #0ff, #f0f, #0f0, #ff0);
-  background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
-  color: #fff;
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  background-color: #000;
+  color: #00f;
 }
 
-@keyframes gradientBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* هيدر */
+/* الهيدر */
 header {
   text-align: center;
   padding: 30px 0 10px 0;
@@ -22,15 +14,17 @@ header {
 
 h1 {
   font-size: 2.8em;
-  color: #0ff;
-  text-shadow: 0 0 10px #0ff, 0 0 25px #0ff;
+  font-family: 'SF Pro Display', 'Arial', sans-serif;
+  color: #00f;
+  text-shadow: 0 0 10px #00f, 0 0 25px #00f;
   margin-bottom: 10px;
 }
 
 .subtitle {
   font-size: 1.2em;
-  color: #0f0;
-  text-shadow: 0 0 8px #0f0;
+  font-family: 'SF Pro Display', 'Arial', sans-serif;
+  color: #00f;
+  text-shadow: 0 0 8px #00f;
 }
 
 /* شبكة المنتجات */
@@ -48,53 +42,34 @@ h1 {
   text-align: center;
   position: relative;
   overflow: hidden;
-  border: 2px solid #0ff;
-  box-shadow: 0 0 20px #0ff, 0 0 50px #0ff inset;
+  border: 2px solid #00f;
+  box-shadow: 0 0 15px #00f, 0 0 50px #00f inset;
+  background: rgba(0,0,50,0.4);
   transition: transform 0.3s, box-shadow 0.3s;
-  background: rgba(0,0,0,0.4);
 }
 
 .product:hover {
   transform: translateY(-10px);
-  box-shadow: 0 0 40px #0ff, 0 0 80px #0ff inset;
+  box-shadow: 0 0 30px #00f, 0 0 60px #00f inset;
 }
 
-/* كرت متدرج متحرك */
-.product::before {
-  content: '';
-  position: absolute;
-  top: -50%; left: -50%;
-  width: 200%; height: 200%;
-  background: linear-gradient(45deg, #0ff, #0f0, #f0f, #ff0);
-  animation: animateGradient 6s linear infinite;
-  z-index: 0;
-  filter: blur(60px);
-}
-@keyframes animateGradient {
-  0% { transform: rotate(0deg) translate(0,0); }
-  50% { transform: rotate(180deg) translate(50px,50px); }
-  100% { transform: rotate(360deg) translate(0,0); }
-}
-
-.product > div {
-  position: relative;
-  z-index: 1;
-}
-
-/* نصوص */
+/* نصوص الكروت */
 .product-name {
   font-size: 20px;
+  font-family: 'SF Pro Display', 'Arial', sans-serif;
   font-weight: bold;
-  text-shadow: 0 0 10px #0ff, 0 0 25px #0ff;
+  color: #00f;
+  text-shadow: 0 0 10px #00f, 0 0 20px #00f;
   display: block;
   margin-bottom: 10px;
 }
 
 .price {
   font-size: 18px;
+  font-family: 'SF Pro Display', 'Arial', sans-serif;
   font-weight: bold;
-  color: #0f0;
-  text-shadow: 0 0 8px #0f0, 0 0 20px #0f0;
+  color: #00f;
+  text-shadow: 0 0 10px #00f, 0 0 20px #00f;
   margin-bottom: 15px;
 }
 
@@ -109,29 +84,29 @@ h1 {
 .btn {
   flex: 1;
   padding: 12px 15px;
-  border-radius: 15px;
+  border-radius: 12px;
   font-weight: bold;
   text-align: center;
   text-decoration: none;
   color: #111;
-  box-shadow: 0 0 10px #0ff;
+  box-shadow: 0 0 10px #00f;
   transition: 0.3s;
 }
 
 .whatsapp {
-  background: linear-gradient(45deg, #0f0, #0c0);
+  background: linear-gradient(45deg, #00f, #00c);
 }
 .whatsapp:hover {
-  background: linear-gradient(45deg, #0c0, #0f0);
-  box-shadow: 0 0 20px #0f0, 0 0 40px #0f0 inset;
+  background: linear-gradient(45deg, #00c, #00f);
+  box-shadow: 0 0 20px #00f, 0 0 40px #00f inset;
 }
 
 .telegram {
-  background: linear-gradient(45deg, #0ff, #0cc);
+  background: linear-gradient(45deg, #00f, #00c);
 }
 .telegram:hover {
-  background: linear-gradient(45deg, #0cc, #0ff);
-  box-shadow: 0 0 20px #0ff, 0 0 40px #0ff inset;
+  background: linear-gradient(45deg, #00c, #00f);
+  box-shadow: 0 0 20px #00f, 0 0 40px #00f inset;
 }
 
 /* نافذة الترحيب */
@@ -148,16 +123,16 @@ h1 {
 
 .modal-content {
   background: #111;
-  border: 2px solid #0ff;
+  border: 2px solid #00f;
   border-radius: 25px;
   padding: 40px 30px;
   text-align: center;
-  box-shadow: 0 0 30px #0ff, 0 0 60px #0ff inset;
+  box-shadow: 0 0 30px #00f, 0 0 60px #00f inset;
 }
 
 .modal-content p {
   font-size: 20px;
-  color: #0ff;
+  color: #00f;
   margin-bottom: 25px;
 }
 
@@ -165,17 +140,18 @@ h1 {
   padding: 12px 25px;
   font-size: 16px;
   font-weight: bold;
-  background: #0f0;
+  background: #00f;
   border: none;
   border-radius: 15px;
   cursor: pointer;
+  color: #000;
 }
 .modal-content button:hover {
-  background: #0c0;
+  background: #00c;
 }
 
-/* تمييز المنتجات واتساب فقط */
+/* تمييز منتجات واتساب فقط */
 .product.wa-only {
-  border-color: #f0f;
-  box-shadow: 0 0 20px #f0f, 0 0 50px #f0f inset;
+  border-color: #0ff;
+  box-shadow: 0 0 20px #0ff, 0 0 50px #0ff inset;
 }
