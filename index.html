@@ -1,25 +1,23 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <title>متجر كابو الالكتروني</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KAPOO STORE</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <!-- نافذة الترحيب -->
-<div id="welcomeDialog" class="dialog">
-    <div class="dialog-content">
-        <h3>أهلاً بيك في متجر كابو الإلكتروني</h3>
-        <p>هتلاقي هنا أسعار رخيصة – سريع – مضمون 100%</p>
-        <button onclick="closeDialog()">تمام</button>
-    </div>
+<div id="welcomeModal" class="modal">
+  <div class="modal-content">
+    <p>مرحبا بيكم في متجر كابو الالكتروني! سريع، مضمون، وخدمات ممتازة.</p>
+    <button id="closeModal">أغلق</button>
+  </div>
 </div>
 
-<h1 class="title">متجر كابو الإلكتروني</h1>
-
-<!-- هذا العنصر مهم عشان السكربت يضيف المنتجات فيه -->
-<div class="products"></div>
+<h1>KAPOO STORE</h1>
+<div id="products" class="grid-container"></div>
 
 <script src="script.js"></script>
 </body>
