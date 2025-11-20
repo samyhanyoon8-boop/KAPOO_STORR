@@ -38,11 +38,11 @@ const products = [
   { name: "كتاب ارض زيكولا", price: "120ج", waOnly: false },
   { name: "100 بوت مجال", price: "10ج", waOnly: false },
   { name: "طريقة عمل أكتر من جميل", price: "10ج", waOnly: false },
-  { name: "الوجو", price: "25ج", waOnly: true },
-  { name: "حزمه 3 لوجهات", price: "65ج", waOnly: true },
-  { name: "الاستيكر", price: "10ج", waOnly: true },
-  { name: "حزمه 3 استيكرات", price: "25ج", waOnly: true },
-  { name: "بانر للواتس اعمال", price: "15ج", waOnly: true }
+  { name: "الوجو", price: "35ج", waOnly: true },
+  { name: "حزمه 3 لوجهات", price: "90ج", waOnly: true },
+  { name: "الاستيكر", price: "15ج", waOnly: true },
+  { name: "حزمه 3 استيكرات", price: "35ج", waOnly: true },
+  { name: "بانر للواتس اعمال", price: "25ج", waOnly: true }
 ];
 
 const waNumber = "201284070117";
