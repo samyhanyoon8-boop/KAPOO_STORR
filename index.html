@@ -1,29 +1,31 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>KAPOO STORE</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<!-- نافذة الترحيب -->
-<div id="welcomeModal" class="modal">
+<h2 class="title">KAPOO STORE – المنتجات</h2>
+<div id="products" class="products"></div>
+
+<h2 class="title">قسم التصميمات</h2>
+<div id="designs" class="products"></div>
+
+<!-- مودال الدفع -->
+<div id="paymentModal" class="modal">
   <div class="modal-content">
-    <p>مرحبا انت الان في افضل المتاجر الموجود استمتع بوقتك</p>
-    <button id="closeModal">أغلق</button>
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h3 id="modalName"></h3>
+    <p id="modalPrice"></p>
+    <div class="btns">
+      <div class="icon-btn" id="payWhats">شراء واتساب</div>
+      <div class="icon-btn" id="payTelegram">شراء تليجرام</div>
+    </div>
   </div>
 </div>
-
-<header>
-  <h1>KAPOO STORE</h1>
-  <p class="subtitle">أفضل المنتجات والخدمات بألوان نيون جذابة</p>
-</header>
-
-<main>
-  <div id="products" class="grid-container"></div>
-</main>
 
 <script src="script.js"></script>
 </body>
