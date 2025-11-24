@@ -1,157 +1,112 @@
-/* خلفية سودا صافية */
 body {
-  margin: 0;
-  font-family: 'Arial', 'Helvetica', sans-serif;
-  background-color: #000;
-  color: #00f;
+  background: #121212;
+  color: #fff;
+  font-family: sans-serif;
+  padding: 20px;
 }
 
-/* الهيدر */
-header {
+.title {
   text-align: center;
-  padding: 30px 0 10px 0;
+  margin: 20px 0;
+  color: #00ffff;
+  font-size: 26px;
+  text-shadow: 0 0 5px #00ffff;
 }
 
-h1 {
-  font-size: 2.8em;
-  font-family: 'SF Pro Display', 'Arial', sans-serif;
-  color: #00f;
-  text-shadow: 0 0 10px #00f, 0 0 25px #00f;
-  margin-bottom: 10px;
-}
-
-.subtitle {
-  font-size: 1.2em;
-  font-family: 'SF Pro Display', 'Arial', sans-serif;
-  color: #00f;
-  text-shadow: 0 0 8px #00f;
-}
-
-/* شبكة المنتجات */
-.grid-container {
+.products {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-  padding: 20px;
-}
-
-/* تصميم الكروت */
-.product {
-  border-radius: 20px;
-  padding: 20px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  border: 2px solid #00f;
-  box-shadow: 0 0 15px #00f, 0 0 50px #00f inset;
-  background: rgba(0,0,50,0.4);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.product:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 0 30px #00f, 0 0 60px #00f inset;
-}
-
-/* نصوص الكروت */
-.product-name {
-  font-size: 20px;
-  font-family: 'SF Pro Display', 'Arial', sans-serif;
-  font-weight: bold;
-  color: #00f;
-  text-shadow: 0 0 10px #00f, 0 0 20px #00f;
-  display: block;
-  margin-bottom: 10px;
-}
-
-.price {
-  font-size: 18px;
-  font-family: 'SF Pro Display', 'Arial', sans-serif;
-  font-weight: bold;
-  color: #00f;
-  text-shadow: 0 0 10px #00f, 0 0 20px #00f;
-  margin-bottom: 15px;
-}
-
-/* أزرار */
-.buttons {
-  display: flex;
-  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 15px;
-  flex-wrap: wrap;
 }
 
-.btn {
-  flex: 1;
-  padding: 12px 15px;
+.card {
+  background: #1e1e1e;
+  border: 2px solid #00ffff;
   border-radius: 12px;
-  font-weight: bold;
+  padding: 15px;
   text-align: center;
-  text-decoration: none;
-  color: #111;
-  box-shadow: 0 0 10px #00f;
   transition: 0.3s;
 }
 
-.whatsapp {
-  background: linear-gradient(45deg, #00f, #00c);
-}
-.whatsapp:hover {
-  background: linear-gradient(45deg, #00c, #00f);
-  box-shadow: 0 0 20px #00f, 0 0 40px #00f inset;
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00ffff;
 }
 
-.telegram {
-  background: linear-gradient(45deg, #00f, #00c);
-}
-.telegram:hover {
-  background: linear-gradient(45deg, #00c, #00f);
-  box-shadow: 0 0 20px #00f, 0 0 40px #00f inset;
+.card h3 {
+  color: #ffffff;
+  font-size: 18px;
+  margin-bottom: 8px;
 }
 
-/* نافذة الترحيب */
-.modal {
+.card p {
+  color: #c0c0c0;
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+.btns {
   display: flex;
+  gap: 10px;
+  margin-top: 10px;
   justify-content: center;
-  align-items: center;
+}
+
+.icon-btn {
+  padding: 10px;
+  background: #00ffff;
+  color: #000;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+  min-width: 90px;
+  transition: 0.3s;
+}
+
+.icon-btn:hover {
+  background: #00e0e0;
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #00ffff;
+}
+
+/* مودال */
+.modal {
+  display: none;
   position: fixed;
-  z-index: 1000;
+  z-index: 10;
   left: 0; top: 0;
   width: 100%; height: 100%;
-  background-color: rgba(0,0,0,0.85);
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9);
 }
 
 .modal-content {
-  background: #111;
-  border: 2px solid #00f;
-  border-radius: 25px;
-  padding: 40px 30px;
+  background-color: #1e1e1e;
+  margin: 15% auto;
+  padding: 20px;
+  border: 2px solid #00ffff;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 400px;
   text-align: center;
-  box-shadow: 0 0 30px #00f, 0 0 60px #00f inset;
+}
+
+.close {
+  color: #ffa500;
+  float: left;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-content h3 {
+  color: #ffffff;
+  font-size: 20px;
 }
 
 .modal-content p {
-  font-size: 20px;
-  color: #00f;
-  margin-bottom: 25px;
-}
-
-.modal-content button {
-  padding: 12px 25px;
-  font-size: 16px;
-  font-weight: bold;
-  background: #00f;
-  border: none;
-  border-radius: 15px;
-  cursor: pointer;
-  color: #000;
-}
-.modal-content button:hover {
-  background: #00c;
-}
-
-/* تمييز منتجات واتساب فقط */
-.product.wa-only {
-  border-color: #0ff;
-  box-shadow: 0 0 20px #0ff, 0 0 50px #0ff inset;
+  color: #c0c0c0;
+  font-size: 18px;
+  margin-bottom: 15px;
 }
